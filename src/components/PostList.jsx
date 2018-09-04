@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import PostListItem from './PostListItem';
 
 const PostList = ({ posts, onPostSelect }) => {
-  
+
   const postItems = posts.map(post => (
     <PostListItem
       onPostSelect={onPostSelect}
