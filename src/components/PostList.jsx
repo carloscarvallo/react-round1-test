@@ -19,21 +19,11 @@ const PostList = ({ posts, onPostSelect }) => {
 };
 
 PostList.propTypes = {
-  post: PropTypes.shape({
-    date: PropTypes.string,
-    title: PropTypes.object,
-    content: PropTypes.object,
-  }),
-  posts: PropTypes.arrayOf(PropTypes.post),
+  posts: PropTypes.arrayOf(PropTypes.object),
   onPostSelect: PropTypes.func.isRequired,
 };
 
 PostList.defaultProps = {
-  post: {
-    date: 'Loading...',
-    title: { rendered: 'Loading...' },
-    content: { rendered: 'Loading...' },
-  },
   posts: {},
 };
 

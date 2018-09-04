@@ -26,18 +26,18 @@ class App extends Component {
     return (
       <Router>
         <div className="container">
+          <header className="blog-header py-3">
+            <div className="row flex-nowrap justify-content-between align-items-center">
+              <div className="col-12 text-center">
+                <a className="blog-header-logo text-dark" href="/">Blog</a>
+              </div>
+            </div>
+          </header>
           <Route
             exact
             path="/"
             render={() => (
               <React.Fragment>
-                <header className="blog-header py-3">
-                  <div className="row flex-nowrap justify-content-between align-items-center">
-                    <div className="col-12 text-center">
-                      <a className="blog-header-logo text-dark" href="/">Blog</a>
-                    </div>
-                  </div>
-                </header>
                 <PostFeatured post={posts[0]} />
                 <PostList
                   onPostSelect={selected => this.setState({ selectedPost: selected })}
