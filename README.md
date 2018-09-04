@@ -8,10 +8,11 @@ Simple Blog based on The Wirecutter API
 $ git clone https://github.com/carloscarvallo/react-round1-test.git
 ```
 
-### Installing
 ```
 $ cd react-round1-test
 ```
+
+### Installing
 
 ```
 $ npm install
