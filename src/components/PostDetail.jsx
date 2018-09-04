@@ -3,26 +3,40 @@ import PropTypes from 'prop-types';
 
 const PostDetail = ({ post }) => {
   console.log(post);
-  // if (!post) return <div>Loading...</div>;
-  return <div>Hello</div>;
+  const finalDate = new Date(post.date).toDateString();
+  return (
+    <main role="main" className="container">
+      <div className="row">
+        <div className="col-md-8 blog-main">
+          <h3 className="pb-3 mb-4 font-italic border-bottom">
+            From the Firehose
+          </h3>
 
-  // const { url, title, excerpt } = post;
-
-  // return (
-  //   // <div className="video-detail col-md-8">
-  //   //   {/* <div className="embed-responsive embed-responsive-16by9">
-  //   //     <iframe className="embed-responsive-item" title={title} src={url} />
-  //   //   </div> */}
-  //   //   <div className="details">
-  //   //     <div>{title}</div>
-  //   //     <div>{excerpt}</div>
-  //   //   </div>
-  //   // </div>
-  // );
+          <div className="blog-post">
+            <h2 className="blog-post-title">{post.title.rendered}</h2>
+            <p className="blog-post-meta">{finalDate}</p>
+            <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+          </div>
+        </div>
+      </div>
+    </main>
+  );
 };
 
 PostDetail.propTypes = {
-  post: PropTypes.object.isRequired,
+  post: PropTypes.shape({
+    date: PropTypes.string,
+    title: PropTypes.object,
+    content: PropTypes.object,
+  }),
+};
+
+PostDetail.defaultProps = {
+  post: {
+    date: 'Loading...',
+    title: { rendered: 'Loading...' },
+    content: { rendered: 'Loading...' },
+  },
 };
 
 export default PostDetail;

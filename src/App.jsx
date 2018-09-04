@@ -40,7 +40,7 @@ class App extends Component {
                 </header>
                 <PostFeatured post={posts[0]} />
                 <PostList
-                  onPostSelect={selectedPost => this.setState({ selectedPost })}
+                  onPostSelect={selected => this.setState({ selectedPost: selected })}
                   posts={posts}
                 />
               </React.Fragment>
