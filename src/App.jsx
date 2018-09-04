@@ -18,10 +18,7 @@ class App extends Component {
   componentWillMount() {
     fetch(apiUrl)
       .then(response => response.json())
-      .then(posts => {
-        console.log(posts);
-        return this.setState({ posts, selectedPost: posts[0] });
-      });
+      .then(posts => this.setState({ posts, selectedPost: posts[0] }));
   }
 
   render() {
@@ -41,7 +38,7 @@ class App extends Component {
                     </div>
                   </div>
                 </header>
-                <PostFeatured article={posts[0]} />
+                <PostFeatured post={posts[0]} />
                 <PostList
                   onPostSelect={selectedPost => this.setState({ selectedPost })}
                   posts={posts}
@@ -49,7 +46,7 @@ class App extends Component {
               </React.Fragment>
             )}
           />
-          <Route path="/:id" component={() => <PostDetail article={selectedPost} />} />
+          <Route path="/:id" component={() => <PostDetail post={selectedPost} />} />
         </div>
       </Router>
     );
