@@ -18,7 +18,10 @@ class App extends Component {
   componentWillMount() {
     fetch(apiUrl)
       .then(response => response.json())
-      .then(posts => this.setState({ posts, selectedPost: posts[0] }));
+      .then(posts => {
+        console.log(posts);
+        return this.setState({ posts, selectedPost: posts[0] });
+      });
   }
 
   render() {
@@ -39,10 +42,10 @@ class App extends Component {
                   </div>
                 </header>
                 <PostFeatured article={posts[0]} />
-                <PostList
+                {/* <PostList
                   onPostSelect={selectedPost => this.setState({ selectedPost })}
                   posts={posts}
-                />
+                /> */}
               </React.Fragment>
             )}
           />
